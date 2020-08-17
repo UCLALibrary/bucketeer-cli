@@ -19,7 +19,7 @@ import requests
     show_default=True,
     help="URL of the Bucketeer service",
 )
-@click.option("--failures-only", is_flag=True, help="process previous failures only")
+@click.option("--failures-only", is_flag=True, help="Process previous failures only")
 @click.option("--slack-handle", required=True, help="Slack handle of the user")
 @click.option(
     "--loglevel",
@@ -27,7 +27,7 @@ import requests
     default="INFO",
     show_default=True,
 )
-@click.option("--version", "-V", is_flag=True, help="print the version number and exit")
+@click.option("--version", "-V", is_flag=True, help="Print the version number and exit")
 def cli(src, server, failures_only, slack_handle, loglevel, version):
     """Uploads CSV files to the Bucketeer service for processing.
 

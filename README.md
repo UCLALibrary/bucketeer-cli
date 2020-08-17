@@ -14,6 +14,8 @@ After it's installed, you can see the available options by running:
 
     bucketeer_cli --help
 
+Note that access to UCLA's Bucketeer service is limited to campus IP addresses, so off-campus users must [connect to the VPN](https://www.it.ucla.edu/it-support-center/services/virtual-private-network-vpn-clients).
+
 The SRC argument supports standard [filename globbing](https://en.wikipedia.org/wiki/Glob_(programming)) rules. In other words, `*.csv` is a valid entry for the SRC argument.
 
 *There are limits* to how many arguments can be sent to a command. This depends on your OS and its configuration. See this [StackExchange](https://unix.stackexchange.com/questions/110282/cp-max-source-files-number-arguments-for-copy-utility) post for more information.
