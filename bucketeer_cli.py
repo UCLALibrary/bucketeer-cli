@@ -92,7 +92,7 @@ def cli(src, server, failures_only, slack_handle, loglevel, version):
             # Upload the file.
             files = {
                 "file": (
-                    pathstring,
+                    csv_filename,
                     open(pathstring, "rb"),
                     "text/csv",
                     {"Expires": "0"},
