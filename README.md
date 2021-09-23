@@ -1,4 +1,4 @@
-# Bucketeer CLI &nbsp;[![Build Status](https://travis-ci.com/UCLALibrary/bucketeer-cli.svg?branch=main)](https://travis-ci.com/UCLALibrary/bucketeer-cli)
+# Bucketeer CLI
 
 Uploads CSV files to the [Bucketeer](https://github.com/UCLALibrary/bucketeer) service for processing.
 
