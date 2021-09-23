@@ -1,5 +1,5 @@
 # Bucketeer CLI
-[![build status](https://github.com/uclalibrary/bucketeer-cli/workflows/Run%20tests%20%26%20style%20checks/badge.svg)](https://github.com/UCLALibrary/bucketeer-cli/actions)
+[![build status](https://github.com/uclalibrary/bucketeer-cli/workflows/Tests%20%26%20Code%20Style/badge.svg)](https://github.com/UCLALibrary/bucketeer-cli/actions)
 
 Uploads CSV files to the [Bucketeer](https://github.com/UCLALibrary/bucketeer) service for processing.
 
