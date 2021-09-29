@@ -1,4 +1,5 @@
-# Bucketeer CLI &nbsp;[![Build Status](https://travis-ci.com/UCLALibrary/bucketeer-cli.svg?branch=main)](https://travis-ci.com/UCLALibrary/bucketeer-cli)
+# Bucketeer CLI
+[![build status](https://github.com/uclalibrary/bucketeer-cli/workflows/Tests%20%26%20Code%20Style/badge.svg)](https://github.com/UCLALibrary/bucketeer-cli/actions)
 
 Uploads CSV files to the [Bucketeer](https://github.com/UCLALibrary/bucketeer) service for processing.
 
@@ -41,10 +42,6 @@ To run the tests:
 Before pushing, make sure you format all the Python source files:
 
     black *.py
-
-You can use the included pre-push script as a Git hook to run these checks automatically on `git push`:
-
-    mv -i pre-push .git/hooks/
 
 ## Releases
 
