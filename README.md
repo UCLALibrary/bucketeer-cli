@@ -1,11 +1,10 @@
 # Bucketeer CLI
-[![build status](https://github.com/uclalibrary/bucketeer-cli/workflows/Tests%20%26%20Code%20Style/badge.svg)](https://github.com/UCLALibrary/bucketeer-cli/actions)
 
 Uploads CSV files to the [Bucketeer](https://github.com/UCLALibrary/bucketeer) service for processing.
 
 ## Installation
 
-First, ensure that you have Bash, cURL, Python 3.6+ and Pip installed on your system.
+First, ensure that you have Bash, cURL, Python 3.8+ and Pip installed on your system.
 
 When that's done, clone the repository and follow the development instructions below (install script coming soon).
 

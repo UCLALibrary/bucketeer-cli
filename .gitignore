@@ -138,3 +138,6 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# A venv our README says to create
+venv_bucketeer_cli/

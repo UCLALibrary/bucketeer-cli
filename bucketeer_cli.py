@@ -1,6 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import logging
+import os
 import pathlib
 import pkg_resources
 import random
@@ -9,7 +10,18 @@ import sys
 from bs4 import BeautifulSoup
 import click
 import requests
+from requests.auth import HTTPBasicAuth
+from dotenv import load_dotenv
 
+load_dotenv()  # Load from .env if present
+username = os.getenv("BUCKETEER_USERNAME")
+password = os.getenv("BUCKETEER_PASSWORD")
+
+if not username or not password:
+    click.echo("Missing BUCKETEER_USERNAME or BUCKETEER_PASSWORD in .env", err=True)
+    sys.exit(1)
+
+auth = HTTPBasicAuth(username, password)
 
 @click.command()
 @click.argument("src", nargs=-1)
@@ -42,7 +54,7 @@ def cli(src, server, failures_only, slack_handle, loglevel, version):
     if version:
         click.echo(user_agent_human_readable)
         sys.exit(0)
-    elif len(src) is 0:
+    elif len(src) == 0:
         click.echo("Please provide one or more CSV files", err=True)
         sys.exit(1)
 
@@ -70,7 +82,7 @@ def cli(src, server, failures_only, slack_handle, loglevel, version):
 
     # Make sure the Bucketeer service is up.
     try:
-        status_response = requests.get(get_status_url, headers=request_headers)
+        status_response = requests.get(get_status_url, headers=request_headers, auth=auth)
         status_response.raise_for_status()
     except requests.exceptions.RequestException as e:
         error_msg = "Bucketeer service unavailable: {}".format(str(e))
@@ -100,11 +112,11 @@ def cli(src, server, failures_only, slack_handle, loglevel, version):
             }
             form_data = [("failures", failures_only), ("slack-handle", slack_handle)]
             post_csv_response = requests.post(
-                post_csv_url, headers=request_headers, files=files, data=form_data
+                post_csv_url, headers=request_headers, files=files, data=form_data, auth=auth
             )
 
             # Handle the response.form_data
-            if post_csv_response.status_code is 200:
+            if post_csv_response.status_code == 200:
                 # Send an awesome message to the user.
                 info_msg = "SUCCESS! CSV {} accepted for processing. You will be notified in Slack when it's done.".format(
                     csv_filename
@@ -137,3 +149,6 @@ def cli(src, server, failures_only, slack_handle, loglevel, version):
             logging.error(error_msg)
 
     logging.info("---- END ----")
+
+if __name__ == "__main__":
+    cli()
